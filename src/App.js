@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './index.css'
+import Layout from "./compomen/layout";
+import Home from './compomen/home';
+import Blog from './compomen/blog';
+import TodoList from './compomen/todoList';
+import ChangeBackgroud from "./compomen/changebackgroud";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes >
+          <Route path='/' element={<Layout></Layout>}>
+            <Route path='/home' element={<Home></Home>}></Route>
+            <Route path='/blog' element={<Blog></Blog>}></Route>
+            <Route path='/todolist' element={<TodoList></TodoList>}></Route>
+            <Route path='/changebackgroud' element={<ChangeBackgroud></ChangeBackgroud>}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
